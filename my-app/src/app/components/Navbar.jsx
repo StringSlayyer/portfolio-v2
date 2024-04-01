@@ -1,3 +1,5 @@
+"use client";
+import React from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -9,7 +11,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-import { Image } from "next/image";
+import Image from "next/image";
 import logo from "../../../public/logo-main.png";
 
 const App = () => {
@@ -29,32 +31,32 @@ const App = () => {
   ];
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen}>
+    <Navbar
+      isBlurred
+      onMenuOpenChange={setIsMenuOpen}
+      className="bg-transparent "
+    >
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-inherit">ACME</p>
+          <Image src={logo} alt="NextUI" width={120} height={40} />
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
-        <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
+        <NavbarItem className="text-grey-400">
+          <Link href="#">Features</Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem>
           <Link href="#" aria-current="page">
             Customers
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Integrations
-          </Link>
+          <Link href="#">Integrations</Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
