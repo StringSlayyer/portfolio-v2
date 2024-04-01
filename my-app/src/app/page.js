@@ -1,6 +1,12 @@
 import Image from "next/image";
-import { BasicLayout } from "./_components/BasicLayout";
+import { BasicLayout } from "./components/BasicLayout";
+import { Navbar } from "./components/Navbar";
 
 export default function Home() {
-  return <h1>dsadfasdf</h1>;
+  return (
+    <div>
+      <Navbar />
+      <h1>dsadfasdf</h1>
+    </div>
+  );
 }
