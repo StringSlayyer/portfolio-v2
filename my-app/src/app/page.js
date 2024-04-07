@@ -13,7 +13,7 @@ import {
   Modal,
   ModalContent,
   ModalBody,
-  useDisclosure,
+  Input,
 } from "@nextui-org/react";
 import { siteConfig } from "./_config/site.js";
 import TypewriterCompo from "./components/Typewriter";
@@ -44,6 +44,8 @@ import gal12 from "../../public/gallery/12.jpg";
 import gal13 from "../../public/gallery/13.jpg";
 import gal14 from "../../public/gallery/14.jpg";
 import gal15 from "../../public/gallery/15.jpg";
+import { useForm } from "react-hook-form";
+import Contact from "./components/Contact";
 
 export default function Home() {
   const list = [
@@ -114,6 +116,16 @@ export default function Home() {
     setIsOpen(false);
     setOpenModalIndex(null);
   };
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+
+  console.log(watch("example")); // watch input value by passing the name of it
   return (
     <BasicLayout>
       <div className="bg-grey-600 text-grey-400">
@@ -240,6 +252,19 @@ export default function Home() {
         </div>
         <div id="fotogalerie" className="mt-36">
           <h1 className="text-3xl text-grey-50 text-center">Fotogalerie</h1>
+          <p className="w-2/3 mx-auto text-center my-6">
+            Ve volném čase se zabývám focením, jak pro zábavu, tak i pro
+            zakázku. Zde si můžete prohlédnout některé z fotografií. Více jich
+            najdete na{" "}
+            <Link isExternal href="" className="text-blood-600">
+              Instagramovém profilu
+            </Link>{" "}
+            nebo na{" "}
+            <Link isExternal className="text-blood-600">
+              Zoneramě
+            </Link>
+            .
+          </p>
           <div className="w-5/6 mt-9 mx-auto grid grid-cols-5 gap-4">
             {gallery.map((item, index) => (
               <div
@@ -270,6 +295,9 @@ export default function Home() {
               </ModalContent>
             </Modal>
           )}
+        </div>
+        <div id="kontakt" className="w-11/12 mx-auto my-16">
+          <Contact className="mx-auto" />
         </div>
       </div>
     </BasicLayout>
