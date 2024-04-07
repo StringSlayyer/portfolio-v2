@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { Input, Textarea } from "@nextui-org/react";
+import { Input, Textarea, Button } from "@nextui-org/react";
 
 const initValues = {
   name: "",
@@ -30,7 +30,7 @@ const Contact = () => {
         isInvalid={!values.name && touched.name}
         type="text"
         label="Jméno"
-        value={values.name}
+        defaultValue={values.name}
         //defaultValue="Jan Novák"
         onChange={handleChange}
         className="max-w-xs my-3"
@@ -41,7 +41,7 @@ const Contact = () => {
         isInvalid={!values.email && touched.email}
         type="email"
         label="Email"
-        value={values.email}
+        defaultValue={values.email}
         //defaultValue="jan.novak@seznam.cz"
         onChange={handleChange}
         className="max-w-xs my-3"
@@ -50,7 +50,7 @@ const Contact = () => {
         isRequired
         isInvalid={!values.message && touched.message}
         placeholder="Zpráva"
-        value={values.message}
+        defaultValue={values.message}
         //defaultValue="Ahoj, rád bych se s vámi spojil."
         onChange={handleChange}
         className="max-w-xs my-3"
