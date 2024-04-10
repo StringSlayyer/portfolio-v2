@@ -54,10 +54,6 @@ export default function Home() {
       img: php,
     },
     {
-      title: "Javascript",
-      img: javascript,
-    },
-    {
       title: "C#",
       img: csharp,
     },
@@ -75,7 +71,7 @@ export default function Home() {
 
   return (
     <BasicLayout>
-      <div className="bg-grey-600 text-grey-400">
+      <div className="bg-grey-800 text-grey-400">
         <div className="flex justify-center items-center flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row w-full h-screen">
           <div className="w-1/2 flex flex-col justify-center  mb-16 text-4xl leading-10">
             <h2>jmenuji se</h2>
@@ -99,19 +95,7 @@ export default function Home() {
           </div>
         </div>
         <div id="o-mne" className="mb-16 w-11/12 mx-auto flex justify-around">
-          <div>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/tl8LUJA0MZ8?si=Gw1eIHRb2OBd2fDS"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div className="w-1/3">
+          <div className="w-1/3 text-start">
             <h1 className="text-3xl text-grey-50 ">O mně</h1>
             <p className="mt-6 text-lg text-grey-100">
               Jmenuji se Samuel Žárský a je mi 18 let. Studuji na{" "}
@@ -133,28 +117,41 @@ export default function Home() {
               často poslouchám i jiné žánry.
             </p>
           </div>
+          <div>
+            {" "}
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/tl8LUJA0MZ8?si=Gw1eIHRb2OBd2fDS"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
         <div
           id="technologie"
           className="w-11/12 mx-auto grid grid-cols-2 my-10"
         >
-          <Card className="bg-black rounded-4xl w-4/5 mx-auto py-4">
+          <Card className="bg-grey-600 rounded-4xl w-4/5 mx-auto py-4 lg:h-full pb-10">
             <CardHeader className="text-center text-3xl mb-8 text-grey-50">
               <h1 className="mx-auto">Technologie</h1>
             </CardHeader>
-            <CardBody className="grid grid-cols-3 mx-auto gap-y-6 gap-10 w-4/5 justify-items-center">
+            <CardBody className="grid xl:grid-cols-4 lg:grid-cols-2 mx-auto gap-6 xl:h-3/5 h-full w-11/12 items-center">
               {list.map((item, index) => (
                 <Tooltip content={item.title} key={index}>
                   <Card
                     shadow="sm"
                     isHoverable
-                    className="w-4/5 bg-grey-50 p-3 h-auto"
+                    className="lg:w-4/5 xl:w-full xl:h-3/5 lg:h-full bg-grey-50 p-3 lg:p-1 "
                   >
-                    <CardBody className="overflow-visible p-0">
+                    <CardBody className="overflow-visible w-full  flex justify-center items-center lg:p-2 p-0">
                       <Image
                         alt={item.title}
                         src={item.img}
-                        className="object-cover mx-auto my-auto"
+                        className="object-cover"
                       />
                     </CardBody>
                   </Card>
@@ -162,7 +159,7 @@ export default function Home() {
               ))}
             </CardBody>
           </Card>
-          <Card className="bg-blood-700 rounded-4xl w-4/5 mx-auto py-4">
+          <Card className="bg-grey-400 rounded-4xl w-4/5 mx-auto py-4 pb-10">
             <CardHeader className="text-center text-3xl mb-8 text-grey-50">
               <h1 className="mx-auto">Projekty</h1>
             </CardHeader>
@@ -179,7 +176,7 @@ export default function Home() {
                       {item.label}
                     </h1>
                     <h2 className="text-grey-50">{item.technologies}</h2>
-                    <p className="text-grey-100 text-sm leading-5">
+                    <p className="text-grey-100 text-xs leading-5">
                       {item.description}
                     </p>
                     <Button

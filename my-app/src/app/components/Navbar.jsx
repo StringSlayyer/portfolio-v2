@@ -27,8 +27,8 @@ const App = () => {
       href: "#technologie",
     },
     {
-      label: "Projekty",
-      href: "#projekty",
+      label: "Fotogalerie",
+      href: "#fotogalerie",
     },
     {
       label: "Kontakt",
